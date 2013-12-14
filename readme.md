@@ -2,7 +2,7 @@
 
 > Preprocess CSS with [Styl](https://github.com/visionmedia/styl)
 
-*Issues with the output should be reported on the [Styl repo]().*
+*Issues with the output should be reported on the [Styl repo](https://github.com/visionmedia/styl/issues).*
 
 
 ## Install
