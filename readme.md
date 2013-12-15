@@ -21,8 +21,9 @@ var gulp = require('gulp');
 var styl = require('gulp-styl');
 
 gulp.task('default', function () {
-	gulp.src('app.css')
-		.pipe(styl({compress: true}));
+	gulp.src('src/app.css')
+		.pipe(styl({compress: true}))
+		.pipe(gulp.dest('dist/app.css'));
 });
 ```
 

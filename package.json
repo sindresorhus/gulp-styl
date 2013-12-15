@@ -19,7 +19,16 @@
     "index.js"
   ],
   "keywords": [
-    "gulpplugin"
+    "gulpplugin",
+    "styl",
+    "style",
+    "stylus",
+    "stylesheet",
+    "css",
+    "preprocess",
+    "preprocessor",
+    "rework",
+    "compile"
   ],
   "dependencies": {
     "event-stream": "~3.0.20",
