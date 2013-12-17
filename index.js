@@ -1,6 +1,5 @@
 'use strict';
 var es = require('event-stream');
-var gutil = require('gulp-util');
 var styl = require('styl');
 
 module.exports = function (options) {
