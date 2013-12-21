@@ -4,7 +4,7 @@ var styl = require('styl');
 
 module.exports = function (options) {
 	return es.map(function (file, cb) {
-		file.contents = new Buffer(styl(String(file.contents), options).toString());
+		file.contents = new Buffer(styl(file.contents.toString(), options).toString());
 		cb(null, file);
 	});
 };

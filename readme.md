@@ -2,7 +2,7 @@
 
 > Preprocess CSS with [Styl](https://github.com/visionmedia/styl)
 
-*Issues with the output should be reported on the [Styl repo](https://github.com/visionmedia/styl/issues).*
+*Issues with the output should be reported on the [Styl issue tracker](https://github.com/visionmedia/styl/issues).*
 
 
 ## Install
@@ -22,7 +22,7 @@ var styl = require('gulp-styl');
 
 gulp.task('default', function () {
 	gulp.src('src/app.css')
-		.pipe(styl({compress: true}))
+		.pipe(styl())
 		.pipe(gulp.dest('dist/app.css'));
 });
 ```
@@ -30,21 +30,16 @@ gulp.task('default', function () {
 
 ## API
 
+The `compress` option from Styl is intentionally missing. A separate task like [gulp-csso](https://github.com/ben-eb/gulp-csso) will much better job.
+
 ### styl(options)
-
-#### options.compress
-
-Type: `Boolean`  
-Default: `false`
-
-Compress the output.
 
 #### options.whitespace
 
 Type: `Boolean`  
 Default: `false`
 
-Utilize CSS whitespace transformations.
+Utilize CSS [whitespace transformations](https://github.com/visionmedia/styl#whitespace-significant-syntax).
 
 
 ## License
