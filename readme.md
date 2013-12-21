@@ -30,7 +30,7 @@ gulp.task('default', function () {
 
 ## API
 
-The `compress` option from Styl is intentionally missing. A separate task like [gulp-csso](https://github.com/ben-eb/gulp-csso) will much better job.
+The `compress` option from Styl is intentionally missing. A separate task like [gulp-csso](https://github.com/ben-eb/gulp-csso) will do a much better job.
 
 ### styl(options)
 
