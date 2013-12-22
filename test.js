@@ -4,19 +4,18 @@ var gutil = require('gulp-util');
 var styl = require('./index');
 
 it('should preprocess CSS using Styl', function (cb) {
-	var stream = styl({compress: true});
+	var stream = styl();
 
-	stream.on('data', function (newFile) {
-		assert.equal(newFile.path, '/home/gulp-styl/test/file.css');
-		assert.equal(newFile.relative, 'file.css');
-		assert.equal(String(newFile.contents), '#test{width:50px;height:50px;}');
+	stream.on('data', function (file) {
+		assert.equal(file.path, '~/dev/gulp-styl/test/file.css');
+		assert.equal(file.relative, 'file.css');
+		assert.equal(file.contents.toString(), '#test {\n  width: 50px;\n  height: 50px;\n}');
 		cb();
 	});
 
 	stream.write(new gutil.File({
-		path: '/home/gulp-styl/test/file.styl',
-		base: '/home/gulp-styl/test/',
-		cwd: '/home/styl/',
-		contents: '#test{width:50px;height:@width;}'
+		base: '~/dev/gulp-styl/test',
+		path: '~/dev/gulp-styl/test/file.styl',
+		contents: new Buffer('#test{width:50px;height:@width;}')
 	}));
 });
