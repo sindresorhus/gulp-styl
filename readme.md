@@ -23,7 +23,7 @@ var styl = require('gulp-styl');
 gulp.task('default', function () {
 	gulp.src('src/app.css')
 		.pipe(styl())
-		.pipe(gulp.dest('dist/app.css'));
+		.pipe(gulp.dest('dist'));
 });
 ```
 
