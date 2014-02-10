@@ -19,10 +19,11 @@ npm install --save-dev gulp-styl
 ```js
 var gulp = require('gulp');
 var styl = require('gulp-styl');
+var inline = require('rework-inline');
 
 gulp.task('default', function () {
 	gulp.src('src/app.css')
-		.pipe(styl())
+		.pipe(styl(inline()))
 		.pipe(gulp.dest('dist'));
 });
 ```
@@ -32,7 +33,10 @@ gulp.task('default', function () {
 
 The `compress` option from Styl is intentionally missing. A separate task like [gulp-csso](https://github.com/ben-eb/gulp-csso) will do a much better job.
 
-### styl(options)
+### styl(plugin, plugin, ..., options)
+
+Plugins are supplied as arguments.
+Optionally supply an object with options as the last argument.
 
 #### options.whitespace
 
