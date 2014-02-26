@@ -22,8 +22,8 @@ var styl = require('gulp-styl');
 var inline = require('rework-inline');
 
 gulp.task('default', function () {
-	gulp.src('src/app.css')
-		.pipe(styl(inline()))
+	gulp.src('src/app.styl')
+		.pipe(styl(inline(), { whitespace: true }))
 		.pipe(gulp.dest('dist'));
 });
 ```
