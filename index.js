@@ -6,31 +6,31 @@ var through = require('through2');
 var styl = require('styl');
 
 module.exports = function () {
-	var args = [].slice.call(arguments);
-	var options = lastIsObject(args) ? args.pop() : {};
-	var plugins = args;
+  var args = [].slice.call(arguments);
+  var options = lastIsObject(args) ? args.pop() : {};
+  var plugins = args;
 
-	return through.obj(function (file, enc, cb) {
-		if (file.isNull()) {
-			this.push(file);
-			return cb();
-		}
+  return through.obj(function (file, enc, cb) {
+    if (file.isNull()) {
+      this.push(file);
+      return cb();
+    }
 
-		if (file.isStream()) {
-			this.emit('error', new gutil.PluginError('gulp-styl', 'Streaming not supported'));
-			return cb();
-		}
+    if (file.isStream()) {
+      this.emit('error', new gutil.PluginError('gulp-styl', 'Streaming not supported'));
+      return cb();
+    }
 
-		try {
-			var ret = styl(file.contents.toString());
-			plugins.forEach(ret.use.bind(ret));
-			file.contents = new Buffer(ret.toString(options));
-			file.path = gutil.replaceExtension(file.path, '.css');
-		} catch (err) {
-			this.emit('error', new gutil.PluginError('gulp-styl', err));
-		}
+    try {
+      var ret = styl(file.contents.toString());
+      plugins.forEach(ret.use.bind(ret));
+      file.contents = new Buffer(ret.toString(options));
+      file.path = gutil.replaceExtension(file.path, '.css');
+    } catch (err) {
+      this.emit('error', new gutil.PluginError('gulp-styl', err));
+    }
 
-		this.push(file);
-		cb();
-	});
+    this.push(file);
+    cb();
+  });
 };
