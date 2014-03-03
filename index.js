@@ -22,7 +22,7 @@ module.exports = function () {
     }
 
     try {
-      var ret = styl(file.contents.toString());
+      var ret = styl(file.contents.toString(), options);
       plugins.forEach(ret.use.bind(ret));
       file.contents = new Buffer(ret.toString(options));
       file.path = gutil.replaceExtension(file.path, '.css');
