@@ -22,9 +22,9 @@ module.exports = function () {
 		}
 
 		try {
-			var ret = styl(file.contents.toString());
+			var ret = styl(file.contents.toString(), options);
 			plugins.forEach(ret.use.bind(ret));
-			file.contents = new Buffer(ret.toString(options));
+			file.contents = new Buffer(ret.toString());
 			file.path = gutil.replaceExtension(file.path, '.css');
 		} catch (err) {
 			this.emit('error', new gutil.PluginError('gulp-styl', err));
