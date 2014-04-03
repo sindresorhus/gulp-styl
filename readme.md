@@ -1,4 +1,4 @@
-# [gulp](https://github.com/wearefractal/gulp)-styl [![Build Status](https://secure.travis-ci.org/sindresorhus/gulp-styl.png?branch=master)](http://travis-ci.org/sindresorhus/gulp-styl)
+# [gulp](http://gulpjs.com)-styl [![Build Status](https://travis-ci.org/sindresorhus/gulp-styl.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-styl)
 
 > Preprocess CSS with [Styl](https://github.com/visionmedia/styl)
 
@@ -7,14 +7,12 @@
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-styl)
-
-```
-npm install --save-dev gulp-styl
+```bash
+$ npm install --save-dev gulp-styl
 ```
 
 
-## Example
+## Usage
 
 ```js
 var gulp = require('gulp');
@@ -48,4 +46,4 @@ Utilize CSS [whitespace transformations](https://github.com/visionmedia/styl#whi
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
