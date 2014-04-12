@@ -20,7 +20,7 @@ var styl = require('gulp-styl');
 var inline = require('rework-inline');
 
 gulp.task('default', function () {
-	gulp.src('src/app.css')
+	return gulp.src('src/app.css')
 		.pipe(styl(inline()))
 		.pipe(gulp.dest('dist'));
 });
