@@ -1,9 +1,8 @@
-/* global it */
 'use strict';
 var assert = require('assert');
 var calc = require('rework-calc');
 var gutil = require('gulp-util');
-var styl = require('./index');
+var styl = require('./');
 
 it('should preprocess CSS using Styl', function (cb) {
 	var stream = styl();

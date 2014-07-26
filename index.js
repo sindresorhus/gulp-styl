@@ -1,9 +1,9 @@
 'use strict';
 var _ = require('lodash');
 var gutil = require('gulp-util');
-var lastIsObject = _.compose(_.isPlainObject, _.last);
 var through = require('through2');
 var styl = require('styl');
+var lastIsObject = _.compose(_.isPlainObject, _.last);
 
 module.exports = function () {
 	var args = [].slice.call(arguments);
@@ -21,13 +21,15 @@ module.exports = function () {
 			return cb();
 		}
 
+		var filePath = file.path;
+
 		try {
 			var ret = styl(file.contents.toString(), options);
 			plugins.forEach(ret.use.bind(ret));
 			file.contents = new Buffer(ret.toString());
 			file.path = gutil.replaceExtension(file.path, '.css');
 		} catch (err) {
-			this.emit('error', new gutil.PluginError('gulp-styl', err));
+			this.emit('error', new gutil.PluginError('gulp-styl', err, {fileName: filePath}));
 		}
 
 		this.push(file);
