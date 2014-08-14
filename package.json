@@ -1,6 +1,6 @@
 {
   "name": "gulp-styl",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Preprocess CSS with Styl",
   "license": "MIT",
   "repository": "sindresorhus/gulp-styl",
