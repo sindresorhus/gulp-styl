@@ -7,7 +7,7 @@
 
 ## Install
 
-```bash
+```sh
 $ npm install --save-dev gulp-styl
 ```
 
@@ -38,7 +38,7 @@ Optionally supply an object with options as the last argument.
 
 #### options.whitespace
 
-Type: `Boolean`  
+Type: `boolean`  
 Default: `false`
 
 Utilize CSS [whitespace transformations](https://github.com/visionmedia/styl#whitespace-significant-syntax).
@@ -46,4 +46,4 @@ Utilize CSS [whitespace transformations](https://github.com/visionmedia/styl#whi
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)

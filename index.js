@@ -13,12 +13,14 @@ module.exports = function () {
 	return through.obj(function (file, enc, cb) {
 		if (file.isNull()) {
 			this.push(file);
-			return cb();
+			cb();
+			return;
 		}
 
 		if (file.isStream()) {
 			this.emit('error', new gutil.PluginError('gulp-styl', 'Streaming not supported'));
-			return cb();
+			cb();
+			return;
 		}
 
 		var filePath = file.path;
@@ -28,11 +30,11 @@ module.exports = function () {
 			plugins.forEach(ret.use.bind(ret));
 			file.contents = new Buffer(ret.toString());
 			file.path = gutil.replaceExtension(file.path, '.css');
+			this.push(file);
 		} catch (err) {
 			this.emit('error', new gutil.PluginError('gulp-styl', err, {fileName: filePath}));
 		}
 
-		this.push(file);
 		cb();
 	});
 };
