@@ -7,7 +7,7 @@ var lastIsObject = _.compose(_.isPlainObject, _.last);
 
 module.exports = function () {
 	var args = [].slice.call(arguments);
-	var options = lastIsObject(args) ? args.pop() : {};
+	var opts = lastIsObject(args) ? args.pop() : {};
 	var plugins = args;
 
 	return through.obj(function (file, enc, cb) {
@@ -24,13 +24,15 @@ module.exports = function () {
 		var filePath = file.path;
 
 		try {
-			var ret = styl(file.contents.toString(), options);
+			var ret = styl(file.contents.toString(), opts);
 			plugins.forEach(ret.use.bind(ret));
 			file.contents = new Buffer(ret.toString());
 			file.path = gutil.replaceExtension(file.path, '.css');
-			cb(null, file);
+			this.push(file);
 		} catch (err) {
-			cb(new gutil.PluginError('gulp-styl', err, {fileName: filePath}));
+			this.emit('error', new gutil.PluginError('gulp-styl', err, {fileName: filePath}));
 		}
+
+		cb();
 	});
 };
