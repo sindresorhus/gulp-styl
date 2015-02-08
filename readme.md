@@ -1,4 +1,4 @@
-# gulp [![Build Status](https://travis-ci.org/sindresorhus/gulp-styl.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-styl)
+# gulp-styl [![Build Status](https://travis-ci.org/sindresorhus/gulp-styl.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-styl)
 
 > Preprocess CSS with [Styl](https://github.com/visionmedia/styl)
 
