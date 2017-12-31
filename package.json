@@ -1,44 +1,45 @@
 {
-  "name": "gulp-styl",
-  "version": "1.2.0",
-  "description": "Preprocess CSS with Styl",
-  "license": "MIT",
-  "repository": "sindresorhus/gulp-styl",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "xo && mocha"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "gulpplugin",
-    "styl",
-    "style",
-    "stylus",
-    "stylesheet",
-    "css",
-    "preprocess",
-    "preprocessor",
-    "rework",
-    "compile"
-  ],
-  "dependencies": {
-    "gulp-util": "^3.0.0",
-    "lodash": "^4.8.2",
-    "styl": "^0.2.7",
-    "through2": "^2.0.0"
-  },
-  "devDependencies": {
-    "mocha": "*",
-    "rework-calc": "^1.1.0",
-    "xo": "*"
-  }
+	"name": "gulp-styl",
+	"version": "1.2.0",
+	"description": "Preprocess CSS with Styl",
+	"license": "MIT",
+	"repository": "sindresorhus/gulp-styl",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && mocha"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"gulpplugin",
+		"styl",
+		"style",
+		"stylus",
+		"stylesheet",
+		"css",
+		"preprocess",
+		"preprocessor",
+		"rework",
+		"compile"
+	],
+	"dependencies": {
+		"lodash": "^4.8.2",
+		"plugin-error": "^0.1.2",
+		"styl": "^0.2.7",
+		"through2": "^2.0.0"
+	},
+	"devDependencies": {
+		"mocha": "^4.1.0",
+		"rework-calc": "^1.1.0",
+		"vinyl": "^2.1.0",
+		"xo": "*"
+	}
 }

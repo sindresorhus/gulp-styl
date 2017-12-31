@@ -1,14 +1,15 @@
 'use strict';
-var _ = require('lodash');
-var gutil = require('gulp-util');
-var through = require('through2');
-var styl = require('styl');
-var lastIsObject = _.flowRight(_.isPlainObject, _.last);
+const _ = require('lodash');
+const through = require('through2');
+const styl = require('styl');
+const PluginError = require('plugin-error');
+
+const lastIsObject = _.flowRight(_.isPlainObject, _.last);
 
 module.exports = function () {
-	var args = [].slice.call(arguments);
-	var opts = lastIsObject(args) ? args.pop() : {};
-	var plugins = args;
+	const args = [].slice.call(arguments);
+	const opts = lastIsObject(args) ? args.pop() : {};
+	const plugins = args;
 
 	return through.obj(function (file, enc, cb) {
 		if (file.isNull()) {
@@ -17,20 +18,20 @@ module.exports = function () {
 		}
 
 		if (file.isStream()) {
-			cb(new gutil.PluginError('gulp-styl', 'Streaming not supported'));
+			cb(new PluginError('gulp-styl', 'Streaming not supported'));
 			return;
 		}
 
-		var filePath = file.path;
+		const filePath = file.path;
 
 		try {
-			var ret = styl(file.contents.toString(), opts);
+			const ret = styl(file.contents.toString(), opts);
 			plugins.forEach(ret.use.bind(ret));
-			file.contents = new Buffer(ret.toString());
-			file.path = gutil.replaceExtension(file.path, '.css');
+			file.contents = Buffer.from(ret.toString());
+			file.extname = '.css';
 			this.push(file);
 		} catch (err) {
-			this.emit('error', new gutil.PluginError('gulp-styl', err, {fileName: filePath}));
+			this.emit('error', new PluginError('gulp-styl', err, {fileName: filePath}));
 		}
 
 		cb();

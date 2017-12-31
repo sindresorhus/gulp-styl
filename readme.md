@@ -31,12 +31,14 @@ gulp.task('default', () =>
 
 The `compress` option from Styl is intentionally missing. A separate task like [gulp-csso](https://github.com/ben-eb/gulp-csso) will do a much better job.
 
-### styl(plugin, plugin, ..., [options])
+### styl(plugin, [plugin…], [options])
 
 Plugins are supplied as arguments.
 Optionally supply an object with options as the last argument.
 
 #### options
+
+Type: `Object`
 
 ##### whitespace
 
